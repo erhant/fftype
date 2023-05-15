@@ -33,10 +33,14 @@ yarn lint
 
 ## Status
 
-- [ ] Bitwise Operations
-  - [ ] Addition
-  - [ ] Subtraction
-  - [ ] Multiplication
+Using the finite field of $GF(13)$. The computations are kept as generic as possible, although the bit-length may be hardcoded at times.
+
+- [x] Bitwise Operations
+  - [x] Addition
+  - [x] Subtraction
+  - [x] Rotations
+  - [x] Shifting
+  - [x] Logic
 - [ ] Finite Field Arithmetic
   - [ ] Addition
   - [ ] Additive Inverse

@@ -2,10 +2,10 @@
   "name": "finitelytyped",
   "version": "0.0.1",
   "description": "Finite field arithmetic using types only",
-  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "compile": "npx tsc",
-    "test": "tsd"
+    "test": "npx tsd src"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,11 @@
     "url": "https://github.com/erhant/FinitelyTyped/issues"
   },
   "homepage": "https://github.com/erhant/FinitelyTyped#readme",
-  "tsd": {
-    "directory": "src"
-  },
   "devDependencies": {
     "prettier": "^2.8.8",
-    "tsd": "^0.28.1",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "tsd": "^0.28.1"
   }
 }
