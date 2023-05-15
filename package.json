@@ -1,0 +1,28 @@
+{
+  "name": "finitelytyped",
+  "version": "0.0.1",
+  "description": "Finite field arithmetic using types only",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx tsc",
+    "test": "tsd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erhant/FinitelyTyped.git"
+  },
+  "author": "erhant",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erhant/FinitelyTyped/issues"
+  },
+  "homepage": "https://github.com/erhant/FinitelyTyped#readme",
+  "tsd": {
+    "directory": "src"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "tsd": "^0.28.1",
+    "typescript": "^5.0.4"
+  }
+}
