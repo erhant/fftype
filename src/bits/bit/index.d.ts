@@ -12,6 +12,7 @@ export type BitZeros<Ints extends Bit[]> = {
 
 /**
  * Replaces an array of bits with the given bits.
+ * @deprecated todo: will change the order of bits
  */
 export type BitReplace<Bits extends Bit[], Replacements extends Bit[]> = {
   [Index in keyof Bits]: Index extends keyof Replacements ? Replacements[Index] : Bits[Index];

@@ -18,8 +18,8 @@ export type BitOr<A extends Bit, B extends Bit> = [A, B] extends [0, 0] ? 0 : 1;
 /**
  * Logical XOR operation on bits.
  */
-export type BitXor<A extends Bit, B extends Bit> = [A, B] extends [0, 0] | [1, 1]
-  ? 0
-  : [A, B] extends [0, 1] | [1, 0]
-  ? 1
-  : never; // impossible case
+// prettier-ignore
+export type BitXor<A extends Bit, B extends Bit> = 
+    [A, B] extends [0, 0] | [1, 1] ? 0
+  : [A, B] extends [0, 1] | [1, 0] ? 1
+  : never; // impossible
