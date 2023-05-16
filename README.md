@@ -33,41 +33,25 @@ yarn lint
 
 ## Status
 
-Using the finite field of $GF(13)$. The computations are kept as generic as possible, although the bit-length may be hardcoded at times.
+Using the finite field of $GF(5)$. The computations are kept as generic as possible, although the bit-length may be hardcoded at times. The field operations operate over bits, and we must make sure that $2(p - 1)$ is within our range to avoid overflows. For $GF(5)$, although all numbers are representable by 3-bits, we use 4-bit arithmetic.
 
 - [x] Bitwise Operations
   - [x] Addition
   - [x] Subtraction
+  - [x] INT4 Addition
+  - [x] INT4 Subtraction
   - [x] Rotations
   - [x] Shifting
   - [x] Logic
 - [ ] Finite Field Arithmetic
-  - [ ] Addition
-  - [ ] Additive Inverse
-  - [ ] Multiplication (double-and-add)
+  - [x] Addition
+  - [x] Additive Inverse
+  - [x] Multiplication (todo: use double-and-add)
   - [ ] Multiplicative Inverse
-    - [ ] via Fermats Little Theorem
+    - [ ] via Fermat's Little Theorem
     - [ ] via Extended Euclidean Algorithm
-  - [ ] Exponentiation (square-and-multiply)
-  - [ ] Subtraction (via additive inverse)
+  - [ ] Exponentiation (todo: use square-and-mul)
+  - [x] Subtraction (via additive inverse)
   - [ ] Division (via multiplicative inverse)
-  - [ ] Remainder
-- [ ] Polynomials
-  - [ ] Addition
-  - [ ] Additive Inverse
-  - [ ] Multiplication
-  - [ ] Division (via polynomial long division)
-  - [ ] Lagrange Interpolation
-- [ ] Elliptic Curves (affine)
-  - [ ] Short Weierstrass
-    - [ ] Invert Point
-    - [ ] Is in Curve?
-    - [ ] Addition
-      - [ ] Chord
-      - [ ] Tangent
-  - [ ] Montgomery
-    - [ ] Invert Point
-    - [ ] Is in Curve?
-  - [ ] Twisted Edwards
-    - [ ] Addition
-    - [ ] Is in Curve?
+  - [x] Remainder
+  - [x] Comparators

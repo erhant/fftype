@@ -1,11 +1,11 @@
 import { Bit } from '../bit';
 
 /**
- * Bitwise shift once
+ * Bitwise left-rotate once
  */
 export type BitLeftRotate<A extends Bit[]> = A extends [infer B, ...infer U] ? [...U, B] : never;
 
 /**
- * Bitwise shift once
+ * Bitwise right-rotate once
  */
 export type BitRightRotate<A extends Bit[]> = A extends [...infer U, infer B] ? [B, ...U] : never;
