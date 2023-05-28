@@ -21,8 +21,8 @@ export type Multiply<A extends Felt, B extends Felt> = Lt<A, B> extends true
  */
 // prettier-ignore
 type MultiplyBody<A extends Felt, B extends Felt, Result extends Felt> = 
-  B extends Zero
-    ? Result // base-case
+  B extends Zero 
+  ? Result // base-case
   : MultiplyBody<
     A, 
     CastFelt<Add<B, MinusOne>>, 

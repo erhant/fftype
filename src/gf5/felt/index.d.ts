@@ -1,5 +1,5 @@
 /**
- * A field element (abbr. Felt) within the finite field of order p has elements {0, 1, ..., p-1}.
+ * A field element (Felt) within the finite field of order p has elements {0, 1, ..., p-1}.
  */
 export type Felt = [0, 0, 0, 0] | [0, 0, 0, 1] | [0, 0, 1, 0] | [0, 0, 1, 1] | [0, 1, 0, 0];
 
