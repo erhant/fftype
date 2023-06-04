@@ -1,9 +1,11 @@
-import { expectType } from 'tsd';
-import { Multiply } from '.';
-import { ToFelt } from '../felt';
+import type { Expect, Equal } from '@type-challenges/utils';
+import type { Multiply } from '.';
+import type { F } from '../testing';
 
-// multiplication in GF(5)
-expectType<Multiply<ToFelt<3>, ToFelt<3>>>([0, 1, 0, 0]);
-expectType<Multiply<ToFelt<3>, ToFelt<2>>>([0, 0, 0, 1]);
-expectType<Multiply<ToFelt<3>, ToFelt<4>>>([0, 0, 1, 0]);
-expectType<Multiply<ToFelt<3>, ToFelt<0>>>([0, 0, 0, 0]);
+type _ = [
+  Expect<Equal<Multiply<F<3>, F<3>>, F<4>>>,
+  Expect<Equal<Multiply<F<3>, F<2>>, F<1>>>,
+  Expect<Equal<Multiply<F<3>, F<4>>, F<2>>>,
+  Expect<Equal<Multiply<F<3>, F<0>>, F<0>>>,
+  Expect<Equal<Multiply<Multiply<Multiply<F<3>, F<3>>, F<3>>, F<3>>, F<1>>>,
+];

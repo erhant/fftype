@@ -1,19 +1,8 @@
-import { Bit } from '../..';
-
-/**
- * Minimum number of bits to represent any element
- * within the current field.
- *
- * Uses Big-endian:
- *
- * `[MSB, bit, bit, LSB]`
- */
-export type Int4 = [Bit, Bit, Bit, Bit];
-
 /**
  * Given a number return the 4-bit representation.
+ * We don' have to write every number here, as this is only used for testing purposes.
  */
-export type ToInt4<N extends number> = N extends keyof Int4Table ? Int4Table[N] : never;
+export type I<N extends number> = N extends keyof Int4Table ? Int4Table[N] : never;
 type Int4Table = {
   0: [0, 0, 0, 0];
   1: [0, 0, 0, 1];

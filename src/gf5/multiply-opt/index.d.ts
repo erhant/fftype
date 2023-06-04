@@ -1,24 +1,15 @@
-import { Felt, ToFelt } from '../felt';
-import { AdditiveInverse } from '../inverse';
-import { Add } from '../add';
-import { Lt } from '../comparators';
+import type { Felt, FeltCast, FeltZero } from '../definitions';
+import type { Add } from '../add';
+import type { Lt } from '../comparators';
 
-type Zero = ToFelt<0>;
-type MinusOne = AdditiveInverse<ToFelt<1>>;
-type CastFelt<A> = A extends Felt ? A : Felt; // just remind the compiler that things are ok
-
-/**
- * Multiplication in this field with "double-and-add" optimization.
- */
+/** Multiplication in this field with "double-and-add" optimization. */
 export type MultiplyOpt<A extends Felt, B extends Felt> = Lt<A, B> extends true
   ? MultiplyOpt<B, A>
-  : B extends Zero
-  ? Zero
-  : MultiplyOptBody<A, B, Zero>;
+  : B extends FeltZero
+  ? FeltZero
+  : MultiplyOptBody<A, B, FeltZero>;
 
-/**
- * We recursively add `A` to the result until `B` is "depleted".
- *
+/** Recursively add `A` to the result until `B` is "depleted".
  * - If `B` is an even number, we halve `B` and double the result.
  * - If `B` is an odd number, we just add `A` to the result and decrement `B`.
  */
@@ -29,10 +20,10 @@ type MultiplyOptBody<A extends Felt, B extends Felt, Result extends Felt> =
     Last extends 0
     ? // `B` is even => double `Result`
       MultiplyOptBody<A,
-      CastFelt<[0, ...Tail]>,
-      CastFelt<Add<Result, Result>>>
+      FeltCast<[0, ...Tail]>,
+      FeltCast<Add<Result, Result>>>
     : // `B` is odd => add `A` to `Result`
       MultiplyOptBody<A, 
-      CastFelt<[...Tail, 0]>,
-      CastFelt<Add<Result, A>>>
+      FeltCast<[...Tail, 0]>,
+      FeltCast<Add<Result, A>>>
   : never // impossible case

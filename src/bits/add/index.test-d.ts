@@ -1,14 +1,15 @@
-import { expectType } from 'tsd';
-import { BitAdd } from '.';
+import type { Equal, Expect } from '@type-challenges/utils';
+import type { BitAdd } from '.';
 
-// without carry
-expectType<BitAdd<0, 0, 0>>([0, 0]);
-expectType<BitAdd<0, 1, 0>>([0, 1]);
-expectType<BitAdd<1, 0, 0>>([0, 1]);
-expectType<BitAdd<1, 1, 0>>([1, 0]);
-
-// with carry
-expectType<BitAdd<0, 0, 1>>([0, 1]);
-expectType<BitAdd<0, 1, 1>>([1, 0]);
-expectType<BitAdd<1, 0, 1>>([1, 0]);
-expectType<BitAdd<1, 1, 1>>([1, 1]);
+type _ = [
+  // without carry
+  Expect<Equal<BitAdd<0, 0, 0>, [0, 0]>>,
+  Expect<Equal<BitAdd<0, 1, 0>, [0, 1]>>,
+  Expect<Equal<BitAdd<1, 0, 0>, [0, 1]>>,
+  Expect<Equal<BitAdd<1, 1, 0>, [1, 0]>>,
+  // with carry
+  Expect<Equal<BitAdd<0, 0, 1>, [0, 1]>>,
+  Expect<Equal<BitAdd<0, 1, 1>, [1, 0]>>,
+  Expect<Equal<BitAdd<1, 0, 1>, [1, 0]>>,
+  Expect<Equal<BitAdd<1, 1, 1>, [1, 1]>>,
+];

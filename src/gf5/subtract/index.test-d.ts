@@ -1,15 +1,16 @@
-import { expectType } from 'tsd';
-import { Subtract } from '.';
-import { ToFelt } from '../felt';
+import type { Expect, Equal } from '@type-challenges/utils';
+import type { Subtract } from '.';
+import type { F } from '../testing';
 
-// without underflow
-expectType<Subtract<ToFelt<0>, ToFelt<0>>>([0, 0, 0, 0]);
-expectType<Subtract<ToFelt<2>, ToFelt<2>>>([0, 0, 0, 0]);
-expectType<Subtract<ToFelt<2>, ToFelt<1>>>([0, 0, 0, 1]);
-expectType<Subtract<ToFelt<3>, ToFelt<1>>>([0, 0, 1, 0]);
-expectType<Subtract<ToFelt<4>, ToFelt<2>>>([0, 0, 1, 0]);
-
-// with underflow
-expectType<Subtract<ToFelt<0>, ToFelt<1>>>([0, 1, 0, 0]);
-expectType<Subtract<ToFelt<2>, ToFelt<4>>>([0, 0, 1, 1]);
-expectType<Subtract<ToFelt<0>, ToFelt<4>>>([0, 0, 0, 1]);
+type _ = [
+  // without underflow
+  Expect<Equal<Subtract<F<0>, F<0>>, F<0>>>,
+  Expect<Equal<Subtract<F<2>, F<2>>, F<0>>>,
+  Expect<Equal<Subtract<F<2>, F<1>>, F<1>>>,
+  Expect<Equal<Subtract<F<3>, F<1>>, F<2>>>,
+  Expect<Equal<Subtract<F<4>, F<2>>, F<2>>>,
+  // with underflow
+  Expect<Equal<Subtract<F<0>, F<1>>, F<4>>>,
+  Expect<Equal<Subtract<F<2>, F<4>>, F<3>>>,
+  Expect<Equal<Subtract<F<0>, F<4>>, F<1>>>,
+];

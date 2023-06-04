@@ -1,14 +1,15 @@
-import { expectType } from 'tsd';
+import { Expect, Equal } from '@type-challenges/utils';
 import { BitSubtract } from '.';
 
-// without borrow
-expectType<BitSubtract<0, 0, 0>>([0, 0]);
-expectType<BitSubtract<0, 1, 0>>([1, 1]);
-expectType<BitSubtract<1, 0, 0>>([0, 1]);
-expectType<BitSubtract<1, 1, 0>>([0, 0]);
-
-// with borrow
-expectType<BitSubtract<0, 0, 1>>([1, 1]);
-expectType<BitSubtract<0, 1, 1>>([1, 0]);
-expectType<BitSubtract<1, 0, 1>>([0, 0]);
-expectType<BitSubtract<1, 1, 1>>([1, 1]);
+type _ = [
+  // without borrow
+  Expect<Equal<BitSubtract<0, 0, 0>, [0, 0]>>,
+  Expect<Equal<BitSubtract<0, 1, 0>, [1, 1]>>,
+  Expect<Equal<BitSubtract<1, 0, 0>, [0, 1]>>,
+  Expect<Equal<BitSubtract<1, 1, 0>, [0, 0]>>,
+  // with borrow
+  Expect<Equal<BitSubtract<0, 0, 1>, [1, 1]>>,
+  Expect<Equal<BitSubtract<0, 1, 1>, [1, 0]>>,
+  Expect<Equal<BitSubtract<1, 0, 1>, [0, 0]>>,
+  Expect<Equal<BitSubtract<1, 1, 1>, [1, 1]>>,
+];

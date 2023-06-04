@@ -1,16 +1,17 @@
-import { expectType } from 'tsd';
-import { BitLeftRotate, BitRightRotate } from '.';
-import { Bit } from '../bit';
+import type { Expect, Equal } from '@type-challenges/utils';
+import type { BitLeftRotate, BitRightRotate } from '.';
 
-expectType<BitLeftRotate<[0, 0]>>([0, 0]);
-expectType<BitLeftRotate<[0, 1]>>([1, 0]);
-expectType<BitLeftRotate<[1, 0]>>([0, 1]);
-expectType<BitLeftRotate<[1, 1]>>([1, 1]);
-
-expectType<BitRightRotate<[0, 0]>>([0, 0]);
-expectType<BitRightRotate<[0, 1]>>([1, 0]);
-expectType<BitRightRotate<[1, 0]>>([0, 1]);
-expectType<BitRightRotate<[1, 1]>>([1, 1]);
-
-// opposite rotates should cancel out
-expectType<BitLeftRotate<BitRightRotate<[1, 0, 1, 1, 0, 0]>>>([1, 0, 1, 1, 0, 0]);
+type _ = [
+  // rotate left
+  Expect<Equal<BitLeftRotate<[0, 0]>, [0, 0]>>,
+  Expect<Equal<BitLeftRotate<[0, 1]>, [1, 0]>>,
+  Expect<Equal<BitLeftRotate<[1, 0]>, [0, 1]>>,
+  Expect<Equal<BitLeftRotate<[1, 1]>, [1, 1]>>,
+  // rotate right
+  Expect<Equal<BitRightRotate<[0, 0]>, [0, 0]>>,
+  Expect<Equal<BitRightRotate<[0, 1]>, [1, 0]>>,
+  Expect<Equal<BitRightRotate<[1, 0]>, [0, 1]>>,
+  Expect<Equal<BitRightRotate<[1, 1]>, [1, 1]>>,
+  // opposite rotates should cancel out
+  Expect<Equal<BitLeftRotate<BitRightRotate<[1, 0, 1, 1, 0, 0]>>, [1, 0, 1, 1, 0, 0]>>,
+];

@@ -1,21 +1,21 @@
-import { expectType } from 'tsd';
-import { BitLeftShift, BitRightShift } from '.';
-import { Bit } from '../bit';
+import type { Expect, Equal } from '@type-challenges/utils';
+import type { BitLeftShift, BitRightShift } from '.';
 
-expectType<BitLeftShift<[0, 0]>>([0, 0]);
-expectType<BitLeftShift<[0, 1]>>([1, 0]);
-expectType<BitLeftShift<[1, 0]>>([0, 0]);
-expectType<BitLeftShift<[1, 1]>>([1, 0]);
+type b1 = [1, 0, 1, 1, 0, 0];
+type b2 = [0, 0, 1, 1, 0, 1];
 
-expectType<BitRightShift<[0, 0]>>([0, 0]);
-expectType<BitRightShift<[0, 1]>>([0, 0]);
-expectType<BitRightShift<[1, 0]>>([0, 1]);
-expectType<BitRightShift<[1, 1]>>([0, 1]);
-
-// must end with 0 for this test
-const b1: [...Bit[], 0] = [1, 0, 1, 1, 0, 0];
-expectType<BitLeftShift<BitRightShift<typeof b1>>>(b1);
-
-// must start with 0 for this test
-const b2: [0, ...Bit[]] = [0, 0, 1, 1, 0, 1];
-expectType<BitRightShift<BitLeftShift<typeof b2>>>(b2);
+type _ = [
+  // shift left
+  Expect<Equal<BitLeftShift<[0, 0]>, [0, 0]>>,
+  Expect<Equal<BitLeftShift<[0, 1]>, [1, 0]>>,
+  Expect<Equal<BitLeftShift<[1, 0]>, [0, 0]>>,
+  Expect<Equal<BitLeftShift<[1, 1]>, [1, 0]>>,
+  // shift right
+  Expect<Equal<BitRightShift<[0, 0]>, [0, 0]>>,
+  Expect<Equal<BitRightShift<[0, 1]>, [0, 0]>>,
+  Expect<Equal<BitRightShift<[1, 0]>, [0, 1]>>,
+  Expect<Equal<BitRightShift<[1, 1]>, [0, 1]>>,
+  // custom cases
+  Expect<Equal<BitLeftShift<BitRightShift<b1>>, b1>>,
+  Expect<Equal<BitRightShift<BitLeftShift<b2>>, b2>>,
+];

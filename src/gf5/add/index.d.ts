@@ -1,8 +1,9 @@
-import { Felt } from '../felt';
-import { Int4Add } from '../../bits/int4';
-import { Rem } from '../rem';
+import type { Felt, BitsAdd } from '../definitions';
+import type { Rem } from '../rem';
 
-/**
- * Addition law in this field.
+/** Addition law in this field.
+ *
+ * We first add two numbers via the bitwise-addition guaranteed not to overflow.
+ * Then, we take the remainder of that.
  */
-export type Add<A extends Felt, B extends Felt> = Rem<Int4Add<A, B>>;
+export type Add<A extends Felt, B extends Felt> = Rem<BitsAdd<A, B>>;

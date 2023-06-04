@@ -1,4 +1,4 @@
-import { Bit } from '../bit';
+import type { Bit } from '../bit';
 
 /**
  * Bitwise Subtraction, outputs a double: `[borrow, diff]`.

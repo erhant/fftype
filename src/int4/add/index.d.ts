@@ -1,10 +1,8 @@
-import { Int4 } from '../int4';
-import { Bit, BitAdd } from '../..';
+import type { Int4 } from '../';
+import type { Bit, BitAdd } from '../../bits';
 
-/**
- * Addition law in this field.
- */
-export type Add<
+/** Bitwise addition. */
+export type Int4Add<
   A extends Int4,
   B extends Int4,
   Bit0 extends [Bit, Bit] = BitAdd<A[3], B[3]>,

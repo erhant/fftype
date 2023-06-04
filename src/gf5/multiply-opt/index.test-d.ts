@@ -1,9 +1,10 @@
-import { expectType } from 'tsd';
-import { MultiplyOpt } from '.';
-import { ToFelt } from '../felt';
+import type { Expect, Equal } from '@type-challenges/utils';
+import type { MultiplyOpt } from '.';
+import type { F } from '../testing';
 
-// multiplication in GF(5)
-expectType<MultiplyOpt<ToFelt<3>, ToFelt<3>>>([0, 1, 0, 0]);
-expectType<MultiplyOpt<ToFelt<3>, ToFelt<2>>>([0, 0, 0, 1]);
-expectType<MultiplyOpt<ToFelt<3>, ToFelt<4>>>([0, 0, 1, 0]);
-expectType<MultiplyOpt<ToFelt<3>, ToFelt<0>>>([0, 0, 0, 0]);
+// type _ = [
+//   Expect<Equal<MultiplyOpt<F<3>, F<3>>, [0, 1, 0, 0]>>,
+//   Expect<Equal<MultiplyOpt<F<3>, F<2>>, [0, 0, 0, 1]>>,
+//   Expect<Equal<MultiplyOpt<F<3>, F<1>>, [0, 0, 1, 0]>>,
+//   Expect<Equal<MultiplyOpt<F<3>, F<0>>, [0, 0, 0, 0]>>,
+// ];

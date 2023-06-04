@@ -1,13 +1,14 @@
-import { expectType } from 'tsd';
-import { Add } from '.';
-import { ToFelt } from '../felt';
+import type { Expect, Equal } from '@type-challenges/utils';
+import type { Add } from '.';
+import type { F } from '../testing';
 
-// without overflow
-expectType<Add<ToFelt<0>, ToFelt<0>>>([0, 0, 0, 0]);
-expectType<Add<ToFelt<2>, ToFelt<2>>>([0, 1, 0, 0]);
-
-// with overflow (w.r.t mod)
-expectType<Add<ToFelt<2>, ToFelt<3>>>([0, 0, 0, 0]);
-expectType<Add<ToFelt<3>, ToFelt<3>>>([0, 0, 0, 1]);
-expectType<Add<ToFelt<1>, ToFelt<4>>>([0, 0, 0, 0]);
-expectType<Add<ToFelt<4>, ToFelt<4>>>([0, 0, 1, 1]);
+type _ = [
+  // without overflow
+  Expect<Equal<Add<F<0>, F<0>>, F<0>>>,
+  Expect<Equal<Add<F<2>, F<2>>, F<4>>>,
+  // with overflow (w.r.t mod)
+  Expect<Equal<Add<F<2>, F<3>>, F<0>>>,
+  Expect<Equal<Add<F<3>, F<3>>, F<1>>>,
+  Expect<Equal<Add<F<1>, F<4>>, F<0>>>,
+  Expect<Equal<Add<F<4>, F<4>>, F<3>>>,
+];

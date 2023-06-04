@@ -4,8 +4,7 @@
   "description": "Finite field arithmetic using types only",
   "types": "index.d.ts",
   "scripts": {
-    "compile": "npx tsc",
-    "test": "npx tsd src"
+    "test": "npx tsc -p ./.tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -18,10 +17,8 @@
   },
   "homepage": "https://github.com/erhant/FinitelyTyped#readme",
   "devDependencies": {
+    "@type-challenges/utils": "^0.1.1",
     "prettier": "^2.8.8",
     "typescript": "^5.0.4"
-  },
-  "dependencies": {
-    "tsd": "^0.28.1"
   }
 }

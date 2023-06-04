@@ -1,8 +1,7 @@
-export * from './add';
-export * from './bit';
-export * from './boolean';
-export * from './reset';
-export * from './rotate';
-export * from './shift';
-export * from './subtract';
-export * from './int4';
+export type * from './add';
+export type * from './bit';
+export type * from './boolean';
+export type * from './fill';
+export type * from './rotate';
+export type * from './shift';
+export type * from './subtract';

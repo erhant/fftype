@@ -1,16 +1,16 @@
-import { expectType } from 'tsd';
-import { Rem } from '.';
-import { ToInt4 } from '../../bits/int4/int4';
+import type { Expect, Equal } from '@type-challenges/utils';
+import type { Rem } from '.';
+import type { F } from '../testing';
+import type { FeltZero, Ford } from '../definitions';
+import { BitsAdd } from '../definitions';
 
-// equality
-expectType<Rem<ToInt4<3>>>([0, 0, 1, 1]);
-expectType<Rem<ToInt4<4>>>([0, 1, 0, 0]);
-expectType<Rem<ToInt4<5>>>([0, 0, 0, 0]);
-expectType<Rem<ToInt4<6>>>([0, 0, 0, 1]);
-expectType<Rem<ToInt4<7>>>([0, 0, 1, 0]);
-expectType<Rem<ToInt4<8>>>([0, 0, 1, 1]);
-expectType<Rem<ToInt4<9>>>([0, 1, 0, 0]);
-expectType<Rem<ToInt4<12>>>([0, 0, 1, 0]);
-expectType<Rem<ToInt4<13>>>([0, 0, 1, 1]);
-expectType<Rem<ToInt4<14>>>([0, 1, 0, 0]);
-expectType<Rem<ToInt4<15>>>([0, 0, 0, 0]);
+type _ = [
+  // less than Ford
+  Expect<Equal<Rem<F<1>>, F<1>>>,
+  Expect<Equal<Rem<F<3>>, F<3>>>,
+  // equal to Ford
+  Expect<Equal<Rem<Ford>, FeltZero>>,
+  // greater than Ford
+  Expect<Equal<Rem<BitsAdd<F<2>, F<4>>>, F<1>>>,
+  Expect<Equal<Rem<BitsAdd<F<4>, F<4>>>, F<3>>>,
+];

@@ -1,7 +1,6 @@
-import { Bit } from '../bit';
+import type { Bit } from '../bit';
 
-/**
- * Bitwise Addition (with optional carry), outputs a double: `[carry, sum]`
+/** Bitwise Addition (with optional carry), outputs a double: `[carry, sum]`
  *
  * See the truth table below to understand what happens:
  * ```

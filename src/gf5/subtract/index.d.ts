@@ -1,8 +1,6 @@
-import { Add } from '../add';
-import { Felt } from '../felt';
-import { AdditiveInverse } from '../inverse';
+import type { Add } from '../add';
+import type { Felt } from '../definitions';
+import type { AdditiveInverse } from '../inverse';
 
-/**
- * Addition with inverse.
- */
+/** Subtraction, that is addition with inverse. */
 export type Subtract<A extends Felt, B extends Felt> = Add<A, AdditiveInverse<B>>;
