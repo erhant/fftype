@@ -9,3 +9,6 @@ export type MSB<A extends Bit[]> = A[0];
 
 /** Set MSB to be 1. This is used as a special trick. */
 export type MSB1<A extends Bit[]> = A extends [infer _, ...infer Rest] ? [1, ...Rest] : [1];
+
+/** Set LSB to be 1. This is used as a special trick. */
+export type LSB1<A extends Bit[]> = A extends [...infer Rest, infer _] ? [...Rest, 1] : [1];

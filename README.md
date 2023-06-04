@@ -60,12 +60,10 @@ Using the finite field of $GF(5)$. The computations are kept as generic as possi
   - [x] Addition
   - [x] Additive Inverse
   - [x] Multiplication
-  - [ ] Multiplicative Inverse
-    - [ ] via Fermat's Little Theorem
-    - [ ] via Extended Euclidean Algorithm
   - [ ] Exponentiation
   - [x] Subtraction
-  - [ ] Division
+  - [x] Division
+  - [x] Modulus
   - [x] Remainder
   - [x] Comparators
 
