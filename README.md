@@ -25,6 +25,17 @@ yarn
 
 To run a function, assign its result to a type and simply "hover over" that type to see the results of "running" that function with some input.
 
+### Implementations
+
+We have the following existing implementations:
+
+- [int4](./src/definitions/int4/): 4-Bit Non-Negative Integers
+- [int5](./src/definitions/int5/): 5-Bit Non-Negative Integers
+- [gf5](./src/definitions/gf5.d.ts): Galois Field of order 5
+- [gf13](./src/definitions/gf13.d.ts): Galois Field of order 13
+
+To use an implementation, simply export them at [`source.d.ts`](./src/source.d.ts).
+
 ### Writing an implementation
 
 When writing an implementation for a new field of order $p$, one must do the following:
@@ -54,15 +65,6 @@ Tests are done via [@type-challenges/utils](https://github.com/SamVerschueren/@t
 yarn test
 ```
 
-## Styling
-
-You can format and lint with the following commands:
-
-```sh
-yarn format
-yarn lint
-```
-
 ## Status
 
 - [x] Bitwise Operations
@@ -84,13 +86,6 @@ yarn lint
   - [x] Modulus
   - [x] Remainder
   - [x] Comparators
-
-## Implementations
-
-- [int4](./src/definitions/int4/): 4-Bit Non-Negative Integers
-- [int5](./src/definitions/int5/): 5-Bit Non-Negative Integers
-- [gf5](./src/definitions/gf5.d.ts): Galois Field of order 5
-- [gf13](./src/definitions/gf13.d.ts): Galois Field of order 13
 
 ## Resources
 
