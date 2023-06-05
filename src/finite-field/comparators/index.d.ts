@@ -11,10 +11,10 @@ export type Lt<A extends Felt, B extends Felt> = BitsSub<MSB1<A>, B>[0] extends 
 /** Result in `true` if A <= B, `false` otherwise. */
 export type LtEq<A extends Felt, B extends Felt> = Lt<A, B> extends false ? Eq<A, B> : true;
 
-/** Result in `true` if A > B, `false` otherwise. */
+/** Result in `true` if A >= B, `false` otherwise. */
 export type GtEq<A extends Felt, B extends Felt> = Lt<A, B> extends false ? true : false;
 
-/** Result in `true` if A >= B, `false` otherwise. */
+/** Result in `true` if A > B, `false` otherwise. */
 export type Gt<A extends Felt, B extends Felt> = LtEq<A, B> extends false ? true : false;
 
 /** Result in `true` if A == B, `false` otherwise. */

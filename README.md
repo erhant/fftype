@@ -3,7 +3,7 @@
     <code>fftype</code>
   </h1>
   <p align="center">
-    <code>{finite-field arithmetic within the type system}</code>
+    <code>finite-field arithmetic within the type system</code>
   </p>
 </p>
 
@@ -53,11 +53,7 @@ As another example, consider the Galois Field of order 13. The number 13 is repr
 
 ## Testing
 
-Tests are done via [@type-challenges/utils](https://github.com/SamVerschueren/@type-challenges/utils), run them with:
-
-```sh
-yarn test
-```
+Tests are done via [@type-challenges/utils](https://github.com/SamVerschueren/@type-challenges/utils), you can run them via `yarn test`. Note that testing is simply compiling everything and see if you get any errors.
 
 ## Status
 
@@ -73,7 +69,6 @@ yarn test
   - [x] Additive Inverse
   - [x] Multiplication
   - [ ] Multiplicative Inverse
-  - [ ] Exponentiation
   - [x] Subtraction via Additive Inverse
   - [ ] Division via Multiplicative Inverse
   - [x] Quotient

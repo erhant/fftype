@@ -10,7 +10,7 @@ type _ = [
   Expect<Equal<BitsAdd<I<2>, I<2>>, I<4>>>,
   Expect<Equal<BitsAdd<I<2>, I<3>>, I<5>>>,
   // with overflow
-  // TODO
+  Expect<Equal<BitsAdd<I<20>, I<15>>, I<3>>>,
   // netural
   Expect<Equal<BitsAdd<I<0>, I<0>>, I<0>>>,
   Expect<Equal<BitsAdd<I<7>, I<0>>, I<7>>>,

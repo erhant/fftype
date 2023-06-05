@@ -10,8 +10,9 @@ type _ = [
   // A - B where A > B
   Expect<Equal<BitsSub<I<6>, I<4>>, I<2>>>,
   Expect<Equal<BitsSub<I<10>, I<8>>, I<2>>>,
-  Expect<Equal<BitsSub<I<25>, I<20>>, I<5>>>,
+  Expect<Equal<BitsSub<I<6>, I<3>>, I<3>>>,
   Expect<Equal<BitsSub<I<4>, I<3>>, I<1>>>,
   // A - B where A < B (should underflow)
-  Expect<Equal<BitsSub<I<0>, I<25>>, I<7>>>,
+  Expect<Equal<BitsSub<I<3>, I<4>>, I<15>>>,
+  Expect<Equal<BitsSub<I<1>, I<7>>, I<10>>>,
 ];
