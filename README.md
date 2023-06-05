@@ -7,7 +7,15 @@
   </p>
 </p>
 
-## Usage
+<p align="center">
+    <a href="https://www.typescriptlang.org/" target="_blank">
+      <img src="https://img.shields.io/badge/%E2%99%A5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+    <a>
+    <a href="./.github/workflows/types.yml" target="_blank">
+        <img alt="Workflow: types" src="https://github.com/erhant/fftype/actions/workflows/types.yml/badge.svg?branch=main">
+    </a>
+    
+</p>
 
 Start by installing dependencies:
 
