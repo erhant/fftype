@@ -17,13 +17,7 @@
     
 </p>
 
-Start by installing dependencies:
-
-```sh
-yarn
-```
-
-To run a function, assign its result to a type and simply "hover over" that type to see the results of "running" that function with some input.
+Start by installing dependencies with `yarn` or `npm i`. To run a function, assign its result to a type and simply "hover over" that type to see the results of "running" that function with some input.
 
 ### Implementations
 
@@ -78,15 +72,18 @@ yarn test
   - [x] Addition
   - [x] Additive Inverse
   - [x] Multiplication
-  - [ ] Extended Euclidean Algorithm
+  - [ ] Multiplicative Inverse
   - [ ] Exponentiation
-  - [x] Subtraction
-  - [ ] Division
+  - [x] Subtraction via Additive Inverse
+  - [ ] Division via Multiplicative Inverse
   - [x] Quotient
   - [x] Modulus
   - [x] Remainder
   - [x] Comparators
 
+Any help is appreciated...
+
 ## Resources
 
 - [Building Complex Types](https://medium.hexlabs.io/building-complex-types-in-typescript-804c973ce66f)
+- [Tail Recursion in TS](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-5.html#tail-recursion-elimination-on-conditional-types)
