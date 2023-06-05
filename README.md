@@ -1,8 +1,11 @@
-# FinitelyTyped
-
-> The repository for type-level finite field arithmetic.
-
-Name is obviously homage to [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+<p align="center">
+  <h1 align="center">
+    <code>fftype</code>
+  </h1>
+  <p align="center">
+    <code>{finite-field arithmetic within the type system}</code>
+  </p>
+</p>
 
 ## Usage
 
@@ -12,21 +15,28 @@ Start by installing dependencies:
 yarn
 ```
 
-To run a function, assign its result to a type and simply "hover over" that typeto see the results of "running" that function with some input.
+To run a function, assign its result to a type and simply "hover over" that type to see the results of "running" that function with some input.
+
+### Writing an implementation
 
 When writing an implementation for a new field of order $p$, one must do the following:
 
+- Let $k$ be the minimum number of bits required to represent $p$.
 - Implement $k+1$ bits bitwise arithmetic.
-  - In other words, we want all arithmetic to happen in bitwise notation, but for all inputs the MSB is 0.
-  - This enables us to do some tricks on comparators and addition.
 - Define the type of order in $k+1$ bits.
 - Define the type of field elements in $k+1$ bits.
 
 For example, consider the Galois Field of order 5. The number 5 is representable with 3 bits as 101, so:
 
 - We must implement 4-bit arithmetic.
-- We define `type Ford = [0, 1, 0, 1]` which is 5 in Bitwise representation.
+- We define `type Ford = [0, 1, 0, 1]` which is 5 in bitwise representation.
 - We implement the field type `type Felt = [0, 1, 0, 0] | [0, 0, Bit, Bit]` which covers all bitwise representation of numbers `0, 1, 2, 3, 4`.
+
+As another example, consider the Galois Field of order 13. The number 13 is representable with 4 bits as 1101, so:
+
+- We must implement 5-bit arithmetic.
+- We define `type Ford = [0, 1, 1, 0, 1]` which is 13 in bitwise representation.
+- We implement the field type `type Felt = [0, 1, 1, 0, 0] | [0, 1, 0, Bit, Bit] | [0, 0, Bit, Bit, Bit]` which covers all bitwise representation of numbers `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12`.
 
 ## Testing
 
@@ -47,8 +57,6 @@ yarn lint
 
 ## Status
 
-Using the finite field of $GF(5)$. The computations are kept as generic as possible, although the bit-length may be hardcoded at times. The field operations operate over bits, and we must make sure that $2(p - 1)$ is within our range to avoid overflows. For $GF(5)$, although all numbers are representable by 3-bits, we use 4-bit arithmetic.
-
 - [x] Bitwise Operations
   - [x] Addition
   - [x] Subtraction
@@ -60,17 +68,21 @@ Using the finite field of $GF(5)$. The computations are kept as generic as possi
   - [x] Addition
   - [x] Additive Inverse
   - [x] Multiplication
+  - [ ] Extended Euclidean Algorithm
   - [ ] Exponentiation
   - [x] Subtraction
-  - [x] Division
+  - [ ] Division
+  - [x] Quotient
   - [x] Modulus
   - [x] Remainder
   - [x] Comparators
 
 ## Implementations
 
-- 4-Bit Non-Negative Integers
-- Galois Field of order 5
+- [int4](./src/definitions/int4/): 4-Bit Non-Negative Integers
+- [int5](./src/definitions/int5/): 5-Bit Non-Negative Integers
+- [gf5](./src/definitions/gf5.d.ts): Galois Field of order 5
+- [gf13](./src/definitions/gf13.d.ts): Galois Field of order 13
 
 ## Resources
 

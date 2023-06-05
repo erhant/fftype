@@ -1,7 +1,7 @@
 {
-  "name": "finitelytyped",
+  "name": "fftype",
   "version": "0.0.1",
-  "description": "Finite field arithmetic using types only",
+  "description": "finite-field arithmetic within the type system",
   "types": "index.d.ts",
   "scripts": {
     "test": "npx tsc -p ./.tsconfig.json"
